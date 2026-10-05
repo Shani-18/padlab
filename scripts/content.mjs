@@ -1,6 +1,6 @@
 // Authoring helper only. Generated pages are plain, crawlable HTML; no build is required to host dist/.
 import { mkdir, writeFile } from 'node:fs/promises';
-const origin = 'https://padlab-controller-check.grassy-fern-6181.chatgpt.site';
+const origin = 'https://padlab-controller-check.m-usmanaslam18101999.chatgpt.site';
 const pages = [
 {path:'guides/stick-drift-test.html',title:'Stick Drift Test: Understand Joystick Offset & Deadzones',description:'Learn how to test joystick drift, interpret mean and peak analog stick offset, and compare resting movement with your game’s deadzone.',body:`
 <div class="eyebrow">PADLAB FIELD GUIDE · ANALOG STICKS</div><h1>Stick drift, deadzones & the center point</h1><p class="article-meta">By PadLab · Updated October 5, 2026 · 4 minute read</p>

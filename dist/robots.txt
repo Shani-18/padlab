@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://padlab-controller-check.grassy-fern-6181.chatgpt.site/sitemap.xml
+Sitemap: https://padlab-controller-check.m-usmanaslam18101999.chatgpt.site/sitemap.xml
