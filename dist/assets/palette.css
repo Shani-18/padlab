@@ -1,0 +1,95 @@
+/* PadLab brand: charcoal / slate / teal / soft white.
+   Dark teal is reserved for readable text on light surfaces. */
+:root {
+  --charcoal: #222831;
+  --slate: #393e46;
+  --teal: #00adb5;
+  --soft-white: #eeeeee;
+  --ink: var(--charcoal);
+  --muted: #56616e;
+  --green: #00777d; /* Legacy accent token shared by the guide templates. */
+  --mint: #e0f2f3;
+  --border: #cdd3d9;
+  --paper: var(--soft-white);
+}
+::selection { background: var(--teal); color: var(--charcoal); }
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, summary:focus-visible { outline-color: var(--green); }
+.site-header { background: var(--charcoal); color: var(--soft-white); border-color: var(--slate); }
+.site-header .nav nav { color: #c1c9d2; }
+.site-header .nav nav a:hover, .site-header .nav nav .current { color: var(--soft-white); border-color: var(--teal); }
+.site-header :focus-visible { outline-color: var(--teal); }
+.brand-dot, .dot { color: var(--teal); }
+.dot { background: var(--teal); }
+.brand-dot { color: var(--green); }
+.site-header .brand-dot { color: var(--teal); }
+h1 span { color: var(--green); }
+.note-icon { border-color: #96bfc2; }
+.primary { background: var(--teal); border-color: var(--teal); color: var(--charcoal); }
+.compat-grid div, .closing { background: var(--mint); border-color: #b4d6d8; }
+.guide-art { background: #deeaed; }
+.drift-art { background-color: #deeaed; background-image: linear-gradient(#bed5d880 1px, transparent 1px), linear-gradient(90deg, #bed5d880 1px, transparent 1px); }
+.drift-art > span { border-color: #85b8bc; box-shadow: 0 0 0 22px #00adb510; }
+.drift-art i { background: var(--green); }
+.button-art { background: #dfe4e9; }
+.button-art span { border-color: #b6c4ce; box-shadow: 0 5px 0 #bac8d0; color: var(--slate); }
+.button-art span:last-child { background: var(--teal); color: var(--charcoal); }
+.cable-art { background: #deeaed; }
+.cable-art > span { background: var(--soft-white); border-color: #8eaeb4; color: var(--green); box-shadow: 0 4px 0 #b2c9cf; }
+.cable-art i { border-color: #7ea8b0; }
+.guide-hub .guide-filters button:hover,
+.guide-hub .guide-filters button:focus-visible,
+.guide-hub .guide-filters button.active { color: var(--charcoal); background: var(--teal); border-color: var(--teal); }
+
+/* Scope the diagnostic surface so editorial pages stay light. */
+.tester {
+  color-scheme: dark;
+  --ink: var(--soft-white);
+  --muted: #bdc6d0;
+  --green: var(--teal);
+  --mint: #263e47;
+  --border: #505b68;
+  --paper: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--soft-white);
+  border-color: #505b68;
+  box-shadow: 0 12px 36px #22283120;
+}
+.tester :focus-visible { outline-color: var(--teal); }
+.tester-top, .toolbar { background: #2a313b; }
+.tester .primary { color: var(--charcoal); }
+.tester .secondary { background: var(--slate); color: var(--soft-white); }
+.tester .secondary:hover:not(:disabled) { background: #46505d; }
+.tester select { background: var(--slate); color: var(--soft-white); }
+.device-icon { background: #263e47; color: var(--teal); }
+.connection { background: var(--slate); border-color: #626f7e; }
+.connection.connected { background: #263e47; color: #6cdee3; border-color: #317c84; }
+.notice { background: #263640; color: #cedfe4; border-color: #405661; }
+.sticks-panel { background: #2a313b; }
+.plot { border-color: #687889; background: linear-gradient(90deg, transparent calc(50% - .5px), #697887 50%, transparent calc(50% + .5px)), linear-gradient(transparent calc(50% - .5px), #697887 50%, transparent calc(50% + .5px)), var(--charcoal); }
+.plot-circle { border-color: #556474; }
+.deadzone { background: #00adb526; border-color: #00adb580; }
+.plot-dot { background: var(--teal); border-color: var(--charcoal); box-shadow: 0 0 0 1px #71e1e6; }
+.stick-name > span { color: var(--muted); }
+.meter { background: #505b68; }
+.meter > span { background: var(--teal); }
+.drift-card { background: var(--slate); border-color: #626f7e; }
+.buttons-panel h3 span { background: var(--slate); }
+.input-cell { background: #2a313b; }
+.input-cell.seen { border-bottom-color: var(--teal); }
+.input-cell.pressed { background: var(--teal); border-color: var(--teal); color: var(--charcoal); }
+.input-cell.pressed small, .input-cell.pressed output { color: var(--charcoal); }
+.svg-control { fill: var(--slate); stroke: #8795a5; }
+.svg-control.active { fill: var(--teal); stroke: #8ce8eb; }
+.controller-stage text { fill: var(--soft-white); }
+.controller-stage .svg-control.active + text { fill: var(--charcoal); }
+/* Recolor the existing vector controller without changing its geometry. */
+#shell stop:first-child { stop-color: #5a6572; }
+#shell stop:last-child { stop-color: var(--slate); }
+#shadow feDropShadow { flood-color: #10141b; flood-opacity: .35; }
+#controller-art [fill='#dce7df'] { fill: #10141b; }
+#controller-art [stroke='#c5d2ca'], #controller-art [stroke='#ccd8d0'] { stroke: #788796; }
+#controller-art [fill='#dbe4df'], #controller-art [fill='#d8e1dc'] { fill: #222831; }
+#controller-art [stroke='#c5d1c9'] { stroke: #657584; }
+#controller-art [fill='#4b5e54'] { fill: var(--slate); }
+#controller-art [stroke='#dae8df'] { stroke: var(--soft-white); }
