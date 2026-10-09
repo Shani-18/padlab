@@ -2,4 +2,4 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: gamepad=(self), camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-gmUw/Jtzq72sIVKb0nH1scn0kpSmypL5yesX/1GY07o='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-hNJoonhLs26ES9ncfE5AkPpA/1JvKc5ymcXuW+x5Gvk=' 'sha256-Y9nf/5HR0MdjPqRdW5HywBWd7K5/q9aOuoLE0mV+GT0=' 'sha256-/WMfgrvRI9UnFBtKaDORlZd7ejXNq/01WvSbssZh8/Y=' 'sha256-Z9h2dohD8AQI7K5pmlJICQ/mFlhSO2VPax0Dr7fvtww=' 'sha256-9wnEfkzWWdihKLsZqzZGS0pIziP8VfD5uu7J44aUyfg=' 'sha256-gmUw/Jtzq72sIVKb0nH1scn0kpSmypL5yesX/1GY07o='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'

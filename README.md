@@ -7,6 +7,7 @@ A buildless gamepad diagnostics website, written in HTML, CSS and native JavaScr
 Use Node 22.8 or newer for development commands:
 
 ```sh
+npm run build
 npm start
 npm test
 npm run check
@@ -20,8 +21,11 @@ Preview: http://127.0.0.1:4173. Serve `dist/` over HTTPS in production; do not o
 - `dist/assets/styles.css`: layered CSS, responsive breakpoints and design tokens.
 - `dist/assets/js/gamepad.js`: pure normalization, sampling and reporting helpers.
 - `dist/assets/js/app.js`: device lifecycle, UI and browser interaction.
-- `dist/guides/`: three original, crawlable topic pages.
-- `scripts/content.mjs`: optional guide authoring helper. Regenerate pages with `node scripts/content.mjs` after editing it.
+- `dist/guides/`: seven crawlable diagnostic and device guides.
+- `scripts/content.mjs` and `scripts/expand-guides.mjs`: content generators; run `npm run build` after edits.
+- `scripts/guide-improvements.mjs`: reference sections and compatibility evidence.
+- `scripts/site.mjs`: production origin and public URL convention.
+- `scripts/finalize.mjs`: normalizes metadata/links and generates sitemap and CSP hashes.
 - `tests/`: unit and simulated DOM integration tests using Node's built-in runner.
 - `docs/`: competitor/content strategy and test evidence.
 
@@ -35,11 +39,11 @@ Vibration is capability-detected and user-triggered, with success, preemption an
 
 ## Deploy / search launch
 
-Upload the contents of `dist/` to static hosting with HTTPS. `.openai/hosting.json` configures the registered Sites project. Sites defaults to an owner-private preview; that preview cannot be indexed by Google. Make the intended production site public before search launch.
+The current production host is Cloudflare Workers static assets. Use the repository-root wrangler.jsonc with assets.directory set to dist, automatic clean HTML URLs, and 404-page missing-page handling. The existing deployment command should honor this configuration (normally npx wrangler deploy). No framework or runtime server is needed in production. The old .openai hosting metadata is historical and is not the deployment target.
 
-For a different production origin, replace the current origin in `dist/index.html` and `scripts/content.mjs`, regenerate content, then run checks. Confirm all canonical URLs, Open Graph URLs, structured data and the sitemap point at that one origin. Set real 404 status handling. `_headers` is a static-host header template; verify support on your chosen host and adapt it if necessary. The check command refreshes the inline JSON-LD CSP hash after content edits.
+Public article URLs omit .html; underlying files remain HTML. The local server follows the same URL convention. Run npm run build to regenerate guides, normalize URLs, refresh all JSON-LD CSP hashes and generate the full sitemap. npm run check performs validation without modifying files. The Google verification tag remains in dist/index.html.
 
-Submit the public sitemap in Google Search Console and inspect representative URLs. Measure Core Web Vitals using real visitors after launch. No ranking, indexing deadline, rich result or Lighthouse score is promised.
+For an origin change, update scripts/site.mjs and homepage metadata together, regenerate, and verify the complete migration. See [SEO release checklist](docs/SEO-RELEASE.md) for deployment and Search Console checks.
 
 ## Scaling
 

@@ -1,1 +1,16 @@
-{"name":"padlab","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node scripts/serve.mjs","guides":"node scripts/expand-guides.mjs","test":"node --test --test-isolation=none tests/*.test.mjs","check":"node scripts/check.mjs"},"engines":{"node":">=22.8"}}
+{
+  "name": "padlab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "guides": "node scripts/expand-guides.mjs",
+    "test": "node --test --test-isolation=none tests/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/content.mjs && node scripts/expand-guides.mjs && node scripts/check.mjs"
+  },
+  "engines": {
+    "node": ">=22.8"
+  }
+}
