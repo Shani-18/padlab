@@ -18,7 +18,7 @@ for(const file of files.filter(f=>f.endsWith('.html'))) {
  const title=html.match(/<title>(.*?)<\/title>/)?.[1];assert.ok(title&&!titles.has(title),'duplicate/missing title');titles.add(title);
  assert.ok(!html.includes('chatgpt.site'),file+' has stale host');
  if(!file.endsWith('404.html')) {
-  const description=html.match(/name="description" content="([^"]+)"/)?.[1];assert.ok(description&&!descriptions.has(description),'duplicate/missing description');descriptions.add(description);
+  const description=html.match(/name="description"\s+content="([^"]+)"/)?.[1];assert.ok(description&&!descriptions.has(description),'duplicate/missing description');descriptions.add(description);
   const canonical=html.match(/rel="canonical" href="([^"]+)"/)?.[1];
   assert.equal(canonical,origin+publicPath(path.relative(root,file).replaceAll('\\','/')),file+' canonical must be final URL');
   assert.ok(!canonicals.has(canonical));canonicals.add(canonical);
@@ -31,7 +31,7 @@ for(const file of files.filter(f=>f.endsWith('.html'))) {
   const target=pathname?await resolveTarget(pathname):file;
   if(hash)assert.ok((await readFile(target,'utf8')).includes(`id="${hash}"`),'missing fragment '+url);
  }
- for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+ for(const m of html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
   JSON.parse(m[1]);assert.ok(headers.includes(`'sha256-${createHash('sha256').update(m[1]).digest('base64')}'`),'CSP missing JSON-LD hash: '+file);
  }
 }
